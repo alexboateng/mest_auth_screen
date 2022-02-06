@@ -6,8 +6,8 @@ import 'package:mest_auth_screen/components/button.dart';
 import 'package:mest_auth_screen/components/text_input.dart';
 import 'package:mest_auth_screen/components/text_input_with_icon.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class RegisterPage extends StatelessWidget {
+  const RegisterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
           Container(
             padding: EdgeInsets.fromLTRB(0, fullHeight * 0.05, 0, 0),
             child: Positioned(
-                child: Container(
+                child: SizedBox(
               height: fullHeight,
               child: Column(
                 children: [
@@ -51,18 +51,26 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: fullHeight * 0.05,
                   ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.network(
-                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmfk_oGGJgXgh9wKB2jI1wyGPxA8GUPbvFHQ&usqp=CAU",
-                      width: fullWidth * 0.2,
-                      height: fullWidth * 0.2,
-                    ),
+                  Column(
+                    children: [
+                      Text(
+                        "Register",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: fullWidth * 0.08),
+                      ),
+                      Text(
+                        "Create your new account",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: fullHeight * 0.05,
                   ),
                   Expanded(
+                    flex: 1,
                     child: Container(
                       width: fullWidth,
                       decoration: BoxDecoration(
@@ -81,46 +89,48 @@ class LoginPage extends StatelessWidget {
                               children: [
                                 Column(
                                   children: [
-                                    Text(
-                                      "Welcome back",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: fullWidth * 0.08),
+                                    TextInput(
+                                      labelTextValue: 'First Name',
                                     ),
-                                    Text("Login into your account"),
                                     SizedBox(
-                                      height: fullHeight * 0.04,
+                                      height: fullHeight * 0.015,
                                     ),
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          flex: 6,
-                                          child: TextInput(
-                                            labelTextValue: 'Email/User Name',
-                                          ),
-                                        ),
-                                      ],
+                                    TextInput(
+                                      labelTextValue: 'Last Name',
+                                    ),
+                                    SizedBox(
+                                      height: fullHeight * 0.015,
+                                    ),
+                                    TextInput(
+                                      labelTextValue: 'Email',
                                     ),
                                     SizedBox(
                                       height: fullHeight * 0.015,
                                     ),
                                     TextInputWithIcon(
-                                      labelTextValue: 'password',
+                                      labelTextValue: 'Confirm password',
                                     ),
                                     SizedBox(
-                                      height: fullHeight * 0.02,
+                                      height: fullHeight * 0.015,
                                     ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                    TextInputWithIcon(
+                                      labelTextValue: 'Confirm password',
+                                    ),
+                                    SizedBox(
+                                      height: fullHeight * 0.015,
+                                    ),
+                                    Wrap(
+                                      alignment: WrapAlignment.center,
                                       children: [
-                                        Text("Remmember me "),
                                         Text(
-                                          "Forgot pasword?",
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.green),
+                                          "By signing up, you aggree to our",
+                                          style: TextStyle(color: Colors.green),
                                         ),
+                                        Text(" Terms of use"),
+                                        Text(" and"),
+                                        Text(" privacy policy",
+                                            style:
+                                                TextStyle(color: Colors.green)),
                                       ],
                                     )
                                   ],
@@ -132,9 +142,9 @@ class LoginPage extends StatelessWidget {
                             children: [
                               Button(
                                 color: Colors.green,
-                                text: "Login",
+                                text: "Sign Up",
                                 textColor: Colors.white,
-                                navigateTo: "/login",
+                                navigateTo: "/register",
                               ),
                               SizedBox(
                                 height: fullHeight * 0.02,
@@ -142,14 +152,13 @@ class LoginPage extends StatelessWidget {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("Dont have an account? "),
+                                  Text("Already have an account? "),
                                   TextButton(
                                     onPressed: () {
-                                      Navigator.of(context)
-                                          .pushNamed("/register");
+                                      Navigator.of(context).pushNamed("/login");
                                     },
                                     child: Text(
-                                      " Sign Up",
+                                      " Login",
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.green),

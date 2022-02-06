@@ -40,6 +40,7 @@ class GettingStarted extends StatelessWidget {
                       color: Colors.white,
                       textColor: Colors.green,
                       text: "Sign Up",
+                      navigateTo: "/register",
                     ),
                     SizedBox(
                       height: fullHeight * 0.02,
@@ -48,6 +49,7 @@ class GettingStarted extends StatelessWidget {
                       color: Colors.green,
                       textColor: Colors.white,
                       text: "Login",
+                      navigateTo: "/login",
                     ),
                   ],
                 )

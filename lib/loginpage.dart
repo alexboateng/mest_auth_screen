@@ -114,7 +114,15 @@ class LoginPage extends StatelessWidget {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text("Remmember me "),
+                                        Row(
+                                          children: [
+                                            Radio(
+                                                value: "1",
+                                                groupValue: 1,
+                                                onChanged: (value) {}),
+                                            Text("Remmember me "),
+                                          ],
+                                        ),
                                         Text(
                                           "Forgot pasword?",
                                           style: TextStyle(
